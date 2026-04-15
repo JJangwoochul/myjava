@@ -1,3 +1,4 @@
+//Car04.java 클래스의 실행 클래스
 package ch02;
 
 public class Ex17 {
