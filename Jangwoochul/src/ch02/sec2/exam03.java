@@ -1,6 +1,6 @@
-package ch02.pr_0416.sec2;
+package ch02.sec2;
 
-import ch02.pr_0416.sec1.exam01;
+import ch02.sec1.exam01;
 
 public class exam03 {
     public exam03() {

@@ -1,4 +1,4 @@
-package ch02.pr_0416.sec1;
+package ch02.sec1;
 
 import java.lang.reflect.Method;
 

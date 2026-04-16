@@ -1,4 +1,4 @@
-package ch02.pr_0416.sec1;
+package ch02.sec1;
 
 public class exam02 {
     public exam02() {
