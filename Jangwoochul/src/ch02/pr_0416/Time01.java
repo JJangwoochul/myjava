@@ -1,5 +1,6 @@
 package ch02.pr_0416;
 
+//Ex06.java의 클래스
 public class Time01 {
     private int hour;
     private int minute;
