@@ -16,6 +16,8 @@ public class test01 {
         System.out.println("점수 총 합 : " + sum);
         double avg = sum / 10;
         System.out.println("평균 : " + avg);
+
+        // AI 검색부분
         // 최댓값 탐색
         double max = scores[0];
         for (int i = 0; i < scores.length; i++) {
