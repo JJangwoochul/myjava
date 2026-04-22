@@ -1,5 +1,7 @@
 package testjava;
 
+
+//20260422
 public class Book {
     // 필드는 private선언 후 , getter/setter 로 접근
     private int id;         //책번호
