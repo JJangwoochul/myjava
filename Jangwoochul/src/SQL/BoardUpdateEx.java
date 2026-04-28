@@ -1,12 +1,12 @@
 package SQL;
 
 // 데이터베이스 연동
-import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
-public class UserInsertEx {
+public class BoardUpdateEx {
     public static void main(String[] args) {
         Connection conn = null;
         try {
@@ -17,21 +17,24 @@ public class UserInsertEx {
                     "jdbc:oracle:thin:@localhost:1521:xe",
                     "system",
                     "1234");
-            // 매개변수화 된 SQL문 작성
-            String sql = "" +
-                    "INSERT INTO users(userid , username, userpassword,userage,useremail)" +
-                    "VALUES (?,?,?,?,?)";
+            // 매개변수화된 SQL문 작성
+            String sql = new StringBuilder()
+                    .append("UPDATE boards SET ")
+                    .append("btitle=?, ")
+                    .append("bcontent=?, ")
+                    .append("bfilename=? ")
+                    .append("WHERE bno=?")
+                    .toString();
             // PreparedStatement 얻기 , 값 지정
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "winter3");
-            pstmt.setString(2, "한여름");
-            pstmt.setString(3, "123456");
-            pstmt.setInt(4, 25);
-            pstmt.setString(5, "winter@mycompany.com");
-            // SQL문 실행
+            pstmt.setString(1, "눈사람");
+            pstmt.setString(2, "눈으로 만든 인간");
+            pstmt.setString(3, "snowman.jpg");
+            pstmt.setInt(4, 1);
+
             int rows = pstmt.executeUpdate();
-            System.out.println("저장된 행 수 : " + rows);
-            // PreparedStatement 닫기
+            System.out.println("수정된 행 수 : " + rows);
+
             pstmt.close();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

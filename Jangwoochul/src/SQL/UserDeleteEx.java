@@ -1,37 +1,28 @@
 package SQL;
 
 // 데이터베이스 연동
-import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
-public class UserInsertEx {
+public class UserDeleteEx {
     public static void main(String[] args) {
         Connection conn = null;
         try {
             // JDBC Driver 등록
             Class.forName("oracle.jdbc.OracleDriver");
             // 연결
-            conn = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:xe",
-                    "system",
-                    "1234");
-            // 매개변수화 된 SQL문 작성
-            String sql = "" +
-                    "INSERT INTO users(userid , username, userpassword,userage,useremail)" +
-                    "VALUES (?,?,?,?,?)";
-            // PreparedStatement 얻기 , 값 지정
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "1234");
+
+            String sql = "DELETE FROM users WHERE userid=? ";
+
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "winter3");
-            pstmt.setString(2, "한여름");
-            pstmt.setString(3, "123456");
-            pstmt.setInt(4, 25);
-            pstmt.setString(5, "winter@mycompany.com");
-            // SQL문 실행
+            pstmt.setString(1, "winter");
+
             int rows = pstmt.executeUpdate();
-            System.out.println("저장된 행 수 : " + rows);
-            // PreparedStatement 닫기
+            System.out.println("삭제된 행 수 : " + rows);
+
             pstmt.close();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

@@ -25,7 +25,7 @@ public class BoardInsertEx {
             PreparedStatement pstmt = conn.prepareStatement(sql, new String[] { "bno" });
             pstmt.setString(1, "눈오는 날");
             pstmt.setString(2, "함박눈이 내려요.");
-            pstmt.setString(3, "winter");
+            pstmt.setString(3, "winter2");
             pstmt.setString(4, "snow.jpg");
             // pstmt.setBlob(5, new FileInputStream("src/SQL/snow.jpg"));
             // SQL문 실행
